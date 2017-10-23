@@ -10,7 +10,7 @@ namespace BlackJack.controller
         public bool Play(model.Game a_game, view.IView a_view)
         {
             a_view.DisplayWelcomeMessage();
-            
+
             a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
             a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
 
@@ -21,20 +21,20 @@ namespace BlackJack.controller
 
             int input = a_view.GetInput();
 
-            if (input == 'p')
+            if (a_view.DoPlay(input))
             {
                 a_game.NewGame();
             }
-            else if (input == 'h')
+            else if (a_view.DoHit(input))
             {
                 a_game.Hit();
             }
-            else if (input == 's')
+            else if (a_view.DoStand(input))
             {
                 a_game.Stand();
             }
 
-            return input != 'q';
+            return a_view.DoQuit(input);
         }
     }
 }
