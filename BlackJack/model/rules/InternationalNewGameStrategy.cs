@@ -26,5 +26,16 @@ namespace BlackJack.model.rules
 
             return true;
         }
+
+        private void givePlayerCard()
+        {
+            throw new NotImplementedException();
+
+        }
+
+        private void giveDealerCard()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
