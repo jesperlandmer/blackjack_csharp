@@ -27,7 +27,7 @@ namespace BlackJack.model
                 m_deck = new Deck();
                 ClearHand();
                 a_player.ClearHand();
-                return m_newGameRule.NewGame(m_deck, this, a_player);   
+                return m_newGameRule.NewGame(m_deck, this, a_player);
             }
             return false;
         }
@@ -40,6 +40,27 @@ namespace BlackJack.model
                 c = m_deck.GetCard();
                 c.Show(true);
                 a_player.DealCard(c);
+
+                return true;
+            }
+            return false;
+        }
+
+        public bool Stand()
+        {
+            if (m_deck != null)
+            {
+                Card c;
+                this.ShowHand();
+
+                do
+                {
+                    c = m_deck.GetCard();
+                    c.Show(true);
+                    this.DealCard(c);
+                }
+                while (m_hitRule.DoHit(this) == true)
+                ;
 
                 return true;
             }
@@ -61,7 +82,7 @@ namespace BlackJack.model
 
         public bool IsGameOver()
         {
-            if (m_deck != null && /*CalcScore() >= g_hitLimit*/ m_hitRule.DoHit(this) != true)
+            if (m_deck != null && m_hitRule.DoHit(this) != true)
             {
                 return true;
             }
