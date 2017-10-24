@@ -1,15 +1,15 @@
 
 using System.Diagnostics;
 
-namespace BlackJack.controller
+namespace BlackJack.view
 {
-    class DealCardToPlayer : NewCardObserver
+    class DisplayCardEvent : Observer
     {
         private Stopwatch _stopwatch = Stopwatch.StartNew();
 
         public override void EventHandler(string eventName)
         {
-            if (eventName == PlayGame.NEW_CARD)
+            if (eventName == controller.PlayGame.NEW_CARD)
             {
                 System.Threading.Thread.Sleep(1000);
                 _stopwatch.Stop();

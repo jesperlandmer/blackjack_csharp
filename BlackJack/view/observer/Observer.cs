@@ -1,7 +1,7 @@
 
-namespace BlackJack.controller
+namespace BlackJack.view
 {
-    abstract class NewCardObserver
+    abstract class Observer
     {
         public abstract void EventHandler(string eventName);
     }

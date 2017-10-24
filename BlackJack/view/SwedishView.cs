@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    class SwedishView : IView
+    class SwedishView : Observable, IView
     {
 
         public PlayerAction GetMenuOption()

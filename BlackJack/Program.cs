@@ -11,9 +11,9 @@ namespace BlackJack
         {
             model.Game g = new model.Game();
             view.IView v = new view.SimpleView(); // new view.SwedishView();
+            v.AttachObserver(new view.DisplayCardEvent());
 
             controller.PlayGame ctrl = new controller.PlayGame();
-            ctrl.AttachObserver(new controller.DealCardToPlayer());
 
             while (ctrl.Play(g, v));
         }

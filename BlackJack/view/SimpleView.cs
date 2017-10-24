@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    class SimpleView : IView
+    class SimpleView : Observable, IView
     {
         public PlayerAction GetMenuOption()
         {
@@ -33,8 +33,8 @@ namespace BlackJack.view
 
         public void DisplayCard(model.Card a_card)
         {
-            
             System.Console.WriteLine("{0} of {1}", a_card.GetValue(), a_card.GetColor());
+            EventHandler(controller.PlayGame.NEW_CARD);
         }
 
         public void DisplayPlayerHand(IEnumerable<model.Card> a_hand, int a_score)

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlackJack.controller
 {
-    class PlayGame : NewCardObservable
+    class PlayGame
     {
         public const string NEW_CARD = "PlayGame::NewCard";
         public bool Play(model.Game a_game, view.IView a_view)
@@ -29,7 +29,6 @@ namespace BlackJack.controller
             else if (input == view.PlayerAction.DoHit)
             {
                 a_game.Hit();
-                EventHandler(NEW_CARD);
             }
             else if (input == view.PlayerAction.DoStand)
             {
