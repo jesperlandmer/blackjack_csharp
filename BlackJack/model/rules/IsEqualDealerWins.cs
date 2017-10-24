@@ -7,7 +7,7 @@ namespace BlackJack.model.rules
 {
     class IsEqualDealerWins : IDecideWinner
     {
-      public bool IsWinner()
+      public bool IsWinner(Deck m_deck)
         {
             return true;
         }

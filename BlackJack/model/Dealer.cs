@@ -12,12 +12,14 @@ namespace BlackJack.model
 
         private rules.INewGameStrategy m_newGameRule;
         private rules.IHitStrategy m_hitRule;
+        private rules.IDecideWinner m_winnerRule;
 
 
         public Dealer(rules.RulesFactory a_rulesFactory)
         {
             m_newGameRule = a_rulesFactory.GetNewGameRule();
             m_hitRule = a_rulesFactory.GetHitRule();
+            m_winnerRule = a_rulesFactory.GetWinnerRule();
         }
 
         public bool NewGame(Player a_player)
@@ -82,6 +84,7 @@ namespace BlackJack.model
 
         public bool IsGameOver()
         {
+            return m_winnerRule.IsWinner(Deck m_deck);
             if (m_deck != null && m_hitRule.DoHit(this) != true)
             {
                 return true;

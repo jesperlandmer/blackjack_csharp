@@ -7,6 +7,6 @@ namespace BlackJack.model.rules
 {
     interface IDecideWinner
     {
-        bool IsWinner();
+        bool IsWinner(Deck m_deck);
     }
 }
