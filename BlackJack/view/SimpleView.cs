@@ -33,6 +33,7 @@ namespace BlackJack.view
 
         public void DisplayCard(model.Card a_card)
         {
+            
             System.Console.WriteLine("{0} of {1}", a_card.GetValue(), a_card.GetColor());
         }
 
