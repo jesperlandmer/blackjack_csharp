@@ -8,21 +8,21 @@ namespace BlackJack.view
     class SwedishView : IView
     {
 
-        public bool DoPlay(int input)
+        public PlayerAction GetMenuOption()
         {
-            return input == 'p';
-        }
-        public bool DoHit(int input)
-        {
-            return input == 'h';
-        }
-        public bool DoStand(int input)
-        {
-            return input == 's';
-        }
-        public bool DoQuit(int input)
-        {
-            return input == 'q';
+            switch (System.Console.In.Read())
+            {
+                case 'p':
+                    return PlayerAction.DoPlay;
+                case 'h':
+                    return PlayerAction.DoHit;
+                case 's':
+                    return PlayerAction.DoStand;
+                case 'q':
+                    return PlayerAction.DoQuit;
+                default:
+                    return PlayerAction.Invalid;
+            }
         }
         public void DisplayWelcomeMessage()
         {
