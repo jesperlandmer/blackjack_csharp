@@ -7,6 +7,7 @@ namespace BlackJack.view
 {
     class SimpleView : Observable, IView
     {
+        public int DisplayHandsCount{ get; set; }
         public PlayerAction GetMenuOption()
         {
             switch (System.Console.In.Read())
@@ -34,7 +35,6 @@ namespace BlackJack.view
         public void DisplayCard(model.Card a_card)
         {
             System.Console.WriteLine("{0} of {1}", a_card.GetValue(), a_card.GetColor());
-            EventHandler(controller.PlayGame.NEW_CARD);
         }
 
         public void DisplayPlayerHand(IEnumerable<model.Card> a_hand, int a_score)
@@ -52,8 +52,10 @@ namespace BlackJack.view
             System.Console.WriteLine("{0} Has: ", a_name);
             foreach (model.Card c in a_hand)
             {
+                EventHandler(controller.PlayGame.NEW_CARD, DisplayHandsCount);
                 DisplayCard(c);
             }
+
             System.Console.WriteLine("Score: {0}", a_score);
             System.Console.WriteLine("");
         }

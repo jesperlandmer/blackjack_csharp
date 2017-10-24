@@ -7,7 +7,7 @@ namespace BlackJack.view
 {
     class SwedishView : Observable, IView
     {
-
+        public int DisplayHandsCount { get; set; }
         public PlayerAction GetMenuOption()
         {
             switch (System.Console.In.Read())
