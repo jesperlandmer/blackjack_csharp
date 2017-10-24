@@ -5,9 +5,9 @@ using System.Text;
 
 namespace BlackJack.model.rules
 {
-    class IsEqualRule : IDecideWinner
+    class IsEqualDealerWins : IDecideWinner
     {
-      public bool CheckWinner()
+      public bool IsWinner()
         {
             return true;
         }

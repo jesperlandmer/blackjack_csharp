@@ -16,10 +16,11 @@ namespace BlackJack.model.rules
         {
             return new AmericanNewGameStrategy();
         }
+
         //ToDo Change names on the classes to match the specific rule
         public IDecideWinner GetWinnerRule()
         {
-            return new IsEqualRule();
+            return new IsEqualDealerWins();
         }
     }
 }
