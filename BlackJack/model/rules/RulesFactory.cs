@@ -18,9 +18,9 @@ namespace BlackJack.model.rules
         }
 
         //ToDo Change names on the classes to match the specific rule
-        public IDecideWinner GetWinnerRule()
+        public IGameRules GetWinnerRule()
         {
-            return new IsEqualDealerWins();
+            return new GameRuleStrategy();
         }
     }
 }
