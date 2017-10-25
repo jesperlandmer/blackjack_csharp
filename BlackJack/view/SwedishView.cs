@@ -76,6 +76,7 @@ namespace BlackJack.view
             System.Console.WriteLine("{0} Har: ", a_name);
             foreach (model.Card c in a_hand)
             {
+                o_eventHandler(controller.PlayGame.NEW_CARD, DisplayHandsCount);
                 DisplayCard(c);
             }
             System.Console.WriteLine("Poäng: {0}", a_score);

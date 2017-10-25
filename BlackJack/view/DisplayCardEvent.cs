@@ -7,7 +7,7 @@ namespace BlackJack.view
     {
         private Stopwatch _stopwatch = Stopwatch.StartNew();
 
-        public override void EventHandler(string eventName, int eventValue)
+        public override void o_eventHandler(string eventName, int eventValue)
         {
             if (eventName == controller.PlayGame.NEW_CARD && eventValue == 1)
             {

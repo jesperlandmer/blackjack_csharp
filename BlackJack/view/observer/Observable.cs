@@ -6,12 +6,12 @@ namespace BlackJack.view
     {
         protected Observer o_observer;
 
-        public void AttachObserver(Observer observer)
+        public void o_attachObserver(Observer observer)
         {
             o_observer = observer;
         }
 
-        public void EventHandler(string eventName, int eventValue)
+        public void o_eventHandler(string eventName, int eventValue)
         {
             o_observer.EventHandler(eventName, eventValue);
         }

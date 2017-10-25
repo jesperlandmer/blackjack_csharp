@@ -3,6 +3,6 @@ namespace BlackJack.view
 {
     abstract class Observer
     {
-        public abstract void EventHandler(string eventName, int eventValue);
+        public abstract void o_eventHandler(string eventName, int eventValue);
     }
 }

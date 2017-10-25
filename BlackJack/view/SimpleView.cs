@@ -52,7 +52,7 @@ namespace BlackJack.view
             System.Console.WriteLine("{0} Has: ", a_name);
             foreach (model.Card c in a_hand)
             {
-                EventHandler(controller.PlayGame.NEW_CARD, DisplayHandsCount);
+                o_eventHandler(controller.PlayGame.NEW_CARD, DisplayHandsCount);
                 DisplayCard(c);
             }
 
