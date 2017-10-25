@@ -70,12 +70,12 @@ namespace BlackJack.model
 
     public bool IsDealerWinner(Player a_player)
     {
-      return m_basicRule.isEqualDealerWins(a_player, this);
+      return m_basicRule.GetWinner(a_player, this);
     }
 
     public bool IsGameOver()
     {
-      return m_basicRule.IsWinner(m_deck, m_hitRule.DoHit(this));
+      return m_basicRule.IsGameOver(m_deck, m_hitRule.DoHit(this));
     }
   }
 }

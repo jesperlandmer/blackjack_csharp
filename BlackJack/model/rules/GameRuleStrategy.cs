@@ -12,7 +12,7 @@ namespace BlackJack.model.rules
       return 21;
     }
     
-    public bool IsWinner(Deck deck, bool hitRule)
+    public bool IsGameOver(Deck deck, bool hitRule)
     {
       if (deck != null && hitRule != true)
       {
@@ -21,7 +21,12 @@ namespace BlackJack.model.rules
       return false;
     }
 
-    public bool isEqualDealerWins(Player player, Dealer dealer)
+    public bool GetWinner(Player player, Dealer dealer)
+    {
+      return IsEqualDealerWins(player, dealer);
+    }
+
+    private bool IsEqualDealerWins (Player player, Dealer dealer)
     {
       if (player.CalcScore() > MaxScore())
       {

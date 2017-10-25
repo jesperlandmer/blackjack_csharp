@@ -8,7 +8,7 @@ namespace BlackJack.model.rules
     interface IGameRules
     {
         int MaxScore();
-        bool IsWinner(Deck deck, bool hitRule);
-        bool isEqualDealerWins(Player player, Dealer dealer);
+        bool IsGameOver(Deck deck, bool hitRule);
+        bool GetWinner(Player player, Dealer dealer);
     }
 }
