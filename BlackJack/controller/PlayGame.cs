@@ -19,6 +19,7 @@ namespace BlackJack.controller
             if (a_game.IsGameOver())
             {
                 a_view.DisplayGameOver(a_game.IsDealerWinner());
+                a_view.DisplayHandsCount = 0;
             }
 
             view.PlayerAction input = a_view.GetMenuOption();
