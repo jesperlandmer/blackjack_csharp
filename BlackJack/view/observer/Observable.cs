@@ -13,7 +13,7 @@ namespace BlackJack.view
 
         public void o_eventHandler(string eventName, int eventValue)
         {
-            o_observer.EventHandler(eventName, eventValue);
+            o_observer.o_eventHandler(eventName, eventValue);
         }
     }
 }

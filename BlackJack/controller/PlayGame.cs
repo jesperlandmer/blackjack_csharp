@@ -7,7 +7,6 @@ namespace BlackJack.controller
 {
     class PlayGame
     {
-        public const string NEW_CARD = "PlayGame::NewCard";
         public bool Play(model.Game a_game, view.IView a_view)
         {
             a_view.DisplayWelcomeMessage();
