@@ -5,9 +5,16 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    class SimpleView : Observable, IView
+    class SimpleView : observer.Observable, IView
     {
         public int DisplayHandsCount{ get; set; }
+        private model.rules.IGameFactory _visitorRules;
+        public SimpleView(model.rules.IGameFactory visitorRules) { _visitorRules = visitorRules; }
+        
+        public void accept(visitor.IRulesVisitor visitor)
+        {
+            visitor.visitRules(_visitorRules);
+        }
         public PlayerAction GetMenuOption()
         {
             switch (System.Console.In.Read())
@@ -52,7 +59,7 @@ namespace BlackJack.view
             System.Console.WriteLine("{0} Has: ", a_name);
             foreach (model.Card c in a_hand)
             {
-                o_eventHandler(DisplayCardEvent.NEW_CARD, DisplayHandsCount);
+                o_eventHandler(events.DisplayCardEvent.NEW_CARD, DisplayHandsCount);
                 DisplayCard(c);
             }
 

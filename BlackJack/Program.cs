@@ -9,14 +9,17 @@ namespace BlackJack
     {
         static void Main(string[] args)
         {
-            model.rules.IGameFactory Rules = new model.rules.RulesFactory();
-            model.Game g = new model.Game(Rules);
-            view.IView v = new view.SimpleView(); // new view.SwedishView();
-            v.o_attachObserver(new view.DisplayCardEvent());
+            model.rules.IGameFactory m_rules = new model.rules.RulesFactory();
+
+            model.Game g = new model.Game(m_rules);
+            view.IView v = new view.SimpleView(m_rules); // new view.SwedishView(m_rules);
+            view.visitor.RulesWriterVisitor r = new view.visitor.RulesWriterVisitor();
+
+            v.o_attachObserver(new view.events.DisplayCardEvent());
 
             controller.PlayGame ctrl = new controller.PlayGame();
 
-            while (ctrl.Play(g, v));
+            while (ctrl.Play(g, v, r));
         }
     }
 }

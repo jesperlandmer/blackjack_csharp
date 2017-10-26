@@ -5,39 +5,55 @@ using System.Text;
 
 namespace BlackJack.model.rules
 {
-  class GameRuleStrategy : IGameRules
-  {
-    public int MaxScore()
+    class GameRuleStrategy : IGameRules
     {
-      return 21;
-    }
-    
-    public bool IsGameOver(Deck deck, bool hitRule)
-    {
-      if (deck != null && hitRule != true)
-      {
-        return true; //Return the new rule
-      }
-      return false;
-    }
+        public int MaxScore()
+        {
+            return 21;
+        }
 
-    public bool GetWinner(Player player, Dealer dealer)
-    {
-      return IsEqualDealerWins(player, dealer);
-    }
+        public bool IsGameOver(Deck deck, bool hitRule)
+        {
+            if (deck != null && hitRule != true)
+            {
+                return true; //Return the new rule
+            }
+            return false;
+        }
 
-    private bool IsEqualDealerWins (Player player, Dealer dealer)
-    {
-      if (player.CalcScore() > MaxScore())
-      {
-        return true;
-      }
-      else if (dealer.CalcScore() > MaxScore())
-      {
-        return false;
-      }
-      return dealer.CalcScore() >= player.CalcScore();
-    }
+        public bool IsDealerWinner(Player player, Dealer dealer)
+        {
+            if (IsBusted(player.CalcScore()))
+            {
+                return true;
+            }
+            else if (IsBusted(dealer.CalcScore()))
+            {
+                return false;
+            }
+            else if (DealerScoresHigher(player.CalcScore(), dealer.CalcScore())
+             | EqualScore(player.CalcScore(), dealer.CalcScore()))
+            {
+                return true;
+            }
 
-  }
+            return false;
+        }
+
+        public bool IsBusted(int score)
+        {
+            return score > MaxScore();
+        }
+
+        public bool DealerScoresHigher(int playerScore, int dealerScore)
+        {
+            return dealerScore > playerScore;
+        }
+
+        public bool EqualScore(int playerScore, int dealerScore)
+        {
+            return playerScore == dealerScore;
+        }
+
+    }
 }

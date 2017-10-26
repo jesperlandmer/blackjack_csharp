@@ -1,12 +1,12 @@
 using System.Diagnostics;
 
-namespace BlackJack.view
+namespace BlackJack.view.observer
 {
     abstract class Observable
     {
         protected Observer o_observer;
 
-        public void o_attachObserver(Observer observer)
+        public void o_attachObserver(observer.Observer observer)
         {
             o_observer = observer;
         }

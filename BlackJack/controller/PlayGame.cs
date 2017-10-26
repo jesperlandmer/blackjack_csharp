@@ -7,9 +7,10 @@ namespace BlackJack.controller
 {
     class PlayGame
     {
-        public bool Play(model.Game a_game, view.IView a_view)
+        public bool Play(model.Game a_game, view.IView a_view, view.visitor.IRulesVisitor v_visitorRules)
         {
             a_view.DisplayWelcomeMessage();
+            a_view.accept(v_visitorRules);
 
             a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
             a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());

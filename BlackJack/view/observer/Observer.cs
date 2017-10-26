@@ -1,5 +1,5 @@
 
-namespace BlackJack.view
+namespace BlackJack.view.observer
 {
     abstract class Observer
     {
