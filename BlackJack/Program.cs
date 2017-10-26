@@ -9,7 +9,8 @@ namespace BlackJack
     {
         static void Main(string[] args)
         {
-            model.Game g = new model.Game();
+            model.rules.IGameFactory Rules = new model.rules.RulesFactory();
+            model.Game g = new model.Game(Rules);
             view.IView v = new view.SimpleView(); // new view.SwedishView();
             v.o_attachObserver(new view.DisplayCardEvent());
 
