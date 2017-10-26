@@ -42,6 +42,7 @@ namespace BlackJack.view
         public void DisplayCard(model.Card a_card)
         {
             System.Console.WriteLine("{0} of {1}", a_card.GetValue(), a_card.GetColor());
+            o_eventHandler(events.DisplayCardEvent.NEW_CARD, DisplayHandsCount);
         }
 
         public void DisplayPlayerHand(IEnumerable<model.Card> a_hand, int a_score)
@@ -59,7 +60,6 @@ namespace BlackJack.view
             System.Console.WriteLine("{0} Has: ", a_name);
             foreach (model.Card c in a_hand)
             {
-                o_eventHandler(events.DisplayCardEvent.NEW_CARD, DisplayHandsCount);
                 DisplayCard(c);
             }
 
