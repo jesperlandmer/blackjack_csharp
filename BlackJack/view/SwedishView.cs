@@ -8,9 +8,11 @@ namespace BlackJack.view
     class SwedishView : observer.Observable, IView
     {
         public int DisplayHandsCount { get; set; }
-        public void accept(visitor.IRulesVisitor rules)
+        private model.rules.IGameFactory _visitorRules;
+        public SwedishView (model.rules.IGameFactory visitorRules) { _visitorRules = visitorRules; }
+        public void accept(visitor.IRulesVisitor visitor)
         {
-
+            visitor.visitRules(_visitorRules);
         }
         public PlayerAction GetMenuOption()
         {
