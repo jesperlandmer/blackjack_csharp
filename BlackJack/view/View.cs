@@ -39,14 +39,7 @@ namespace BlackJack.view
                         return String.Format("{0} {1}", GetCardColors()[(int)a_card.GetColor()], GetCardNumbers()[(int)a_card.GetValue()]);
                     }
                 default:
-                    if (a_card.GetColor() == model.Card.Color.Hidden)
-                    {
-                        return "Hidden card";
-                    }
-                    else
-                    {
-                        return String.Format("{0} of {1}", a_card.GetValue(), a_card.GetColor());
-                    }
+                    return String.Format("{0} of {1}", a_card.GetValue(), a_card.GetColor());
             }
         }
 

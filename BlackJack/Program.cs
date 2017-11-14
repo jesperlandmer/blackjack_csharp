@@ -10,7 +10,7 @@ namespace BlackJack
         static void Main(string[] args)
         {
             model.Game g = new model.Game();
-            view.IView v = new view.ConsoleView("S"); // new view.ConsoleView("S");
+            view.IView v = new view.ConsoleView(); // new view.ConsoleView("S");
             v.o_attachObserver(new view.DisplayCardEvent());
 
             controller.PlayGame ctrl = new controller.PlayGame();
