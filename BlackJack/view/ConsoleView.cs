@@ -55,7 +55,7 @@ namespace BlackJack.view
             }
 
             System.Console.WriteLine(consoleView.GetScore(a_score));
-            System.Console.WriteLine("");
+            System.Console.WriteLine(""); //To be removed?
         }
 
         public void DisplayCard(model.Card a_card)
