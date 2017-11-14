@@ -8,7 +8,12 @@ namespace BlackJack.view
     class SimpleView : Observable, IView
     {
         public int DisplayHandsCount{ get; set; }
-        private string Language;
+        
+        private string _language;
+
+        public SimpleView(string language){
+            Observable ConsoleView = new ConsoleView(language);
+        }
         public PlayerAction GetMenuOption()
         {
             switch (System.Console.In.Read())

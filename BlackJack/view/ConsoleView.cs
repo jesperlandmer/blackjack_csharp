@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    class ConsoleView
+    class ConsoleView : Observable
     {
         private string _language;
 
