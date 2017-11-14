@@ -7,7 +7,6 @@ namespace BlackJack.view
 {
     interface IView
     {
-        int DisplayHandsCount{ get; set; }
         PlayerAction GetMenuOption();
         void DisplayWelcomeMessage();
         void DisplayPlayerHand(IEnumerable<model.Card> a_hand, int a_score);

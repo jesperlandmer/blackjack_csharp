@@ -25,12 +25,12 @@ namespace BlackJack.view
             }
         }
 
-        public void DisplayCard(model.Card a_card)
+        public string DisplayCard(model.Card a_card)
         {
-            System.Console.WriteLine("{0} of {1}", a_card.GetValue(), a_card.GetColor());
+            return String.Format("{0} of {1}", a_card.GetValue(), a_card.GetColor());
         }
 
-        public string DisplayPlayerHand(IEnumerable<model.Card> a_hand, int a_score)
+        public string GetPlayerHand(IEnumerable<model.Card> a_hand, int a_score)
         {
             switch (_language)
             {
@@ -41,35 +41,59 @@ namespace BlackJack.view
             }
         }
 
-        public void DisplayDealerHand(IEnumerable<model.Card> a_hand, int a_score)
+        public string GetDealerHand(IEnumerable<model.Card> a_hand, int a_score)
         {
-            DisplayHand("Dealer", a_hand, a_score);
+            switch (_language)
+            {
+                case "S":
+                    return "Croupier Har: ";
+                default:
+                    return "Dealer Has: ";
+            }
         }
 
-        private void DisplayHand(String a_name, IEnumerable<model.Card> a_hand, int a_score)
+        public string GetScore(int a_score)
         {
-            System.Console.WriteLine("{0} Has: ", a_name);
-            foreach (model.Card c in a_hand)
+            switch (_language)
             {
-                DisplayCard(c);
+                case "S":
+                    return String.Format("Score: {0}", a_score);
+                default:
+                    return String.Format("Poäng: {0}", a_score);
             }
-
-            System.Console.WriteLine("Score: {0}", a_score);
-            System.Console.WriteLine("");
         }
 
-        public void DisplayGameOver(bool a_dealerIsWinner)
+        public string GetPlayerWinner()
         {
-            System.Console.Write("GameOver: ");
-            if (a_dealerIsWinner)
+            switch (_language)
             {
-                System.Console.WriteLine("Dealer Won!");
+                case "S":
+                    return "Du Vann!";
+                default:
+                    return "You Won!";
             }
-            else
-            {
-                System.Console.WriteLine("You Won!");
-            }
+        }
 
+        public string GetDealerWinner(int a_score)
+        {
+            switch (_language)
+            {
+                case "S":
+                    return "Croupiern Vann!";
+                default:
+                    return "Dealer Won!";
+            }
+        }
+
+        public string GetGameOver(bool a_dealerIsWinner)
+        {
+            switch (_language)
+            {
+                case "S":
+                    return "Slut: ";
+                default:
+                    return "GameOver: ";
+            }
         }
     }
 }
