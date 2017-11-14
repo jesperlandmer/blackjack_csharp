@@ -7,7 +7,7 @@ namespace BlackJack.view
 {
     class SimpleView : Observable, IView
     {
-        public int DisplayHandsCount{ get; set; }
+        private string Language;
         public PlayerAction GetMenuOption()
         {
             switch (System.Console.In.Read())
@@ -28,13 +28,18 @@ namespace BlackJack.view
         public void DisplayWelcomeMessage()
         {
             System.Console.Clear();
-            System.Console.WriteLine("Hello Black Jack World");
-            System.Console.WriteLine("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
-        }
 
-        public void DisplayCard(model.Card a_card)
-        {
-            System.Console.WriteLine("{0} of {1}", a_card.GetValue(), a_card.GetColor());
+            switch (Language)
+            {
+                case "S":
+                    System.Console.WriteLine("Hej Black Jack Världen");
+                    System.Console.WriteLine("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
+                    break;
+                default:
+                    System.Console.WriteLine("Hello Black Jack World");
+                    System.Console.WriteLine("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
+                    break;
+            }
         }
 
         public void DisplayPlayerHand(IEnumerable<model.Card> a_hand, int a_score)
@@ -52,12 +57,16 @@ namespace BlackJack.view
             System.Console.WriteLine("{0} Has: ", a_name);
             foreach (model.Card c in a_hand)
             {
-                o_eventHandler(DisplayCardEvent.NEW_CARD, DisplayHandsCount);
                 DisplayCard(c);
             }
 
             System.Console.WriteLine("Score: {0}", a_score);
             System.Console.WriteLine("");
+        }
+
+        public void DisplayCard(model.Card a_card)
+        {
+            System.Console.WriteLine("{0} of {1}", a_card.GetValue(), a_card.GetColor());
         }
 
         public void DisplayGameOver(bool a_dealerIsWinner)

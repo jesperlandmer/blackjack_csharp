@@ -1,0 +1,11 @@
+/Users/Jesper/1dv607/blackjack_csharp/BlackJack/bin/release/netcoreapp1.1/win10-x64/hostpolicy.dll
+/Users/Jesper/1dv607/blackjack_csharp/BlackJack/bin/release/netcoreapp1.1/win10-x64/hostfxr.dll
+/Users/Jesper/1dv607/blackjack_csharp/BlackJack/bin/release/netcoreapp1.1/win10-x64/BlackJack.exe
+/Users/Jesper/1dv607/blackjack_csharp/BlackJack/bin/release/netcoreapp1.1/win10-x64/BlackJack.deps.json
+/Users/Jesper/1dv607/blackjack_csharp/BlackJack/bin/release/netcoreapp1.1/win10-x64/BlackJack.runtimeconfig.json
+/Users/Jesper/1dv607/blackjack_csharp/BlackJack/bin/release/netcoreapp1.1/win10-x64/BlackJack.runtimeconfig.dev.json
+/Users/Jesper/1dv607/blackjack_csharp/BlackJack/bin/release/netcoreapp1.1/win10-x64/BlackJack.dll
+/Users/Jesper/1dv607/blackjack_csharp/BlackJack/bin/release/netcoreapp1.1/win10-x64/BlackJack.pdb
+/Users/Jesper/1dv607/blackjack_csharp/BlackJack/obj/release/netcoreapp1.1/win10-x64/BlackJack.AssemblyInfo.cs
+/Users/Jesper/1dv607/blackjack_csharp/BlackJack/obj/release/netcoreapp1.1/win10-x64/BlackJack.dll
+/Users/Jesper/1dv607/blackjack_csharp/BlackJack/obj/release/netcoreapp1.1/win10-x64/BlackJack.pdb
