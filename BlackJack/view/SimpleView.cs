@@ -7,6 +7,7 @@ namespace BlackJack.view
 {
     class SimpleView : Observable, IView
     {
+        public int DisplayHandsCount{ get; set; }
         private string Language;
         public PlayerAction GetMenuOption()
         {
