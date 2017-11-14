@@ -5,16 +5,19 @@ using System.Text;
 
 namespace BlackJack.model.rules
 {
-    class RulesFactory : IGameFactory
+    class RulesFactory
     {
         public IHitStrategy GetHitRule()
         {
             return new BasicHitStrategy();
         }
+
         public INewGameStrategy GetNewGameRule()
         {
             return new AmericanNewGameStrategy();
         }
+
+        //ToDo Change names on the classes to match the specific rule
         public IGameRules GetWinnerRule()
         {
             return new GameRuleStrategy();

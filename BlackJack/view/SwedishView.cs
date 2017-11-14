@@ -5,15 +5,9 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    class SwedishView : observer.Observable, IView
+    class SwedishView : Observable, IView
     {
         public int DisplayHandsCount { get; set; }
-        private model.rules.IGameFactory _visitorRules;
-        public SwedishView (model.rules.IGameFactory visitorRules) { _visitorRules = visitorRules; }
-        public void accept(visitor.IRulesVisitor visitor)
-        {
-            visitor.visitRules(_visitorRules);
-        }
         public PlayerAction GetMenuOption()
         {
             switch (System.Console.In.Read())
@@ -82,7 +76,7 @@ namespace BlackJack.view
             System.Console.WriteLine("{0} Har: ", a_name);
             foreach (model.Card c in a_hand)
             {
-                o_eventHandler(events.DisplayCardEvent.NEW_CARD, DisplayHandsCount);
+                o_eventHandler(DisplayCardEvent.NEW_CARD, DisplayHandsCount);
                 DisplayCard(c);
             }
             System.Console.WriteLine("Poäng: {0}", a_score);

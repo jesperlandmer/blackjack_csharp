@@ -1,9 +1,9 @@
 
 using System.Diagnostics;
 
-namespace BlackJack.view.events
+namespace BlackJack.view
 {
-    class DisplayCardEvent : observer.Observer
+    class DisplayCardEvent : Observer
     {
         public const string NEW_CARD = "PlayGame::NewCard";
 

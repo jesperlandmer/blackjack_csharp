@@ -14,7 +14,7 @@ namespace BlackJack.model
     private rules.IGameRules m_basicRule;
 
 
-    public Dealer(rules.IGameFactory a_rulesFactory)
+    public Dealer(rules.RulesFactory a_rulesFactory)
     {
       m_newGameRule = a_rulesFactory.GetNewGameRule();
       m_hitRule = a_rulesFactory.GetHitRule();
@@ -70,7 +70,7 @@ namespace BlackJack.model
 
     public bool IsDealerWinner(Player a_player)
     {
-      return m_basicRule.IsDealerWinner(a_player, this);
+      return m_basicRule.GetWinner(a_player, this);
     }
 
     public bool IsGameOver()
