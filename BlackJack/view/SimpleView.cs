@@ -11,7 +11,8 @@ namespace BlackJack.view
         
         private string _language;
 
-        public SimpleView(string language){
+        public SimpleView(string language = ""){
+            _language = language;
             Observable ConsoleView = new ConsoleView(language);
         }
         public PlayerAction GetMenuOption()
@@ -35,7 +36,7 @@ namespace BlackJack.view
         {
             System.Console.Clear();
 
-            switch (Language)
+            switch (_language)
             {
                 case "S":
                     System.Console.WriteLine("Hej Black Jack Världen");
