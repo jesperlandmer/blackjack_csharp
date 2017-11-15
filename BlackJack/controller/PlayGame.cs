@@ -44,7 +44,8 @@ namespace BlackJack.controller
         }
         public void SetListener(model.observer.IObserver a_view)
         {
-            model.observer.PlayerObserver observer = new model.observer.PlayerObserver();
+            Console.WriteLine("Setting listener");
+            var observer = new model.observer.PlayerObserver();
             observer.AddObserver(a_view);
         }
     }
