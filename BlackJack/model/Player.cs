@@ -5,20 +5,14 @@ using System.Text;
 
 namespace BlackJack.model
 {
-    class Player
+    class Player : observer.PlayerObserver
     {
         private List<Card> m_hand = new List<Card>();
-        private observer.IObserver m_observer = new observer.PlayerObserver();
 
         public void DealCard(Card a_card)
         {
             m_hand.Add(a_card);
             NotifyObserver();
-        }
-
-        private void NotifyObserver()
-        {
-            m_observer.Update();
         }
 
         public IEnumerable<Card> GetHand()

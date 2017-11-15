@@ -1,24 +1,26 @@
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace BlackJack.model.observer
 {
-    class PlayerObserver : IObserver
+    class PlayerObserver
     {
-        private Stopwatch _stopwatch;
+        private List<IObserver> _observers;
 
-        public PlayerObserver()
+        public void AddObserver(IObserver observer)
         {
-            _stopwatch = Stopwatch.StartNew();
+            _observers.Add(observer);
         }
-
-        public void Update()
+        public void DeleteObserver(IObserver observer)
         {
-            PauseDealCard();
+            _observers.Remove(observer);
         }
-        private void PauseDealCard()
+        public void NotifyObserver()
         {
-            System.Threading.Thread.Sleep(1000);
-            _stopwatch.Stop();
+            foreach(IObserver o in _observers)
+            {
+                o.Update();
+            }
         }
     }
 }

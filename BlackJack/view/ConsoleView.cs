@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
 namespace BlackJack.view
 {
-    class ConsoleView : IView
+    class ConsoleView : IView, model.observer.IObserver
     {
-        View consoleView;
+        private View consoleView;
+        private Stopwatch _stopwatch;
+
         public PlayerAction GetMenuOption()
         {
             switch (System.Console.In.Read())
@@ -28,6 +31,11 @@ namespace BlackJack.view
         public ConsoleView(string language = "")
         {
             consoleView = new View(language);
+        }
+        public void Update()
+        {
+            System.Threading.Thread.Sleep(1000);
+            _stopwatch.Stop();
         }
         public void DisplayWelcomeMessage()
         {
