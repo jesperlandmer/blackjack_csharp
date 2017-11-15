@@ -7,12 +7,6 @@ namespace BlackJack.controller
 {
     class PlayGame
     {
-        public void SetListener(model.observer.IObserver a_view)
-        {
-            model.observer.PlayerObserver observer = new model.observer.PlayerObserver();
-            observer.AddObserver(a_view);
-        }
-
         public bool Play(model.Game a_game, view.IView a_view)
         {
             SetListener(a_view);
@@ -42,6 +36,12 @@ namespace BlackJack.controller
             }
 
             return input != view.PlayerAction.DoQuit;
+        }
+
+        public void SetListener(model.observer.IObserver a_view)
+        {
+            model.observer.PlayerObserver observer = new model.observer.PlayerObserver();
+            observer.AddObserver(a_view);
         }
     }
 }
