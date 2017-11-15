@@ -13,7 +13,6 @@ namespace BlackJack.model
     private rules.IHitStrategy m_hitRule;
     private rules.IGameRules m_basicRule;
 
-
     public Dealer(rules.RulesFactory a_rulesFactory)
     {
       m_newGameRule = a_rulesFactory.GetNewGameRule();

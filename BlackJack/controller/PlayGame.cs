@@ -9,7 +9,6 @@ namespace BlackJack.controller
     {
         public bool Play(model.Game a_game, view.IView a_view)
         {
-            SetListener(a_view);
             a_view.DisplayWelcomeMessage();
 
             a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
@@ -36,17 +35,6 @@ namespace BlackJack.controller
             }
 
             return input != view.PlayerAction.DoQuit;
-        }
-
-        public void Update()
-        {
-
-        }
-        public void SetListener(model.observer.IObserver a_view)
-        {
-            Console.WriteLine("Setting listener");
-            var observer = new model.observer.PlayerObserver();
-            observer.AddObserver(a_view);
         }
     }
 }

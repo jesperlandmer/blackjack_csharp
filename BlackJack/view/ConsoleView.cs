@@ -32,10 +32,11 @@ namespace BlackJack.view
         {
             _view = new View(language);
         }
-        public void Update()
+        public void Update(model.Card a_card)
         {
-            System.Console.Clear();
-            Console.WriteLine("Poo");
+            System.Threading.Thread.Sleep(1500);
+            _stopwatch.Stop();
+            DisplayCard(a_card);
         }
         public void DisplayWelcomeMessage()
         {
