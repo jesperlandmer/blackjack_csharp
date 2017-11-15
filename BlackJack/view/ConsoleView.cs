@@ -6,10 +6,10 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    class ConsoleView : IView, model.observer.IObserver
+    class ConsoleView : IView
     {
-        private View view;
-        private Stopwatch _stopwatch;
+        private View _view;
+        private Stopwatch _stopwatch = Stopwatch.StartNew();
 
         public PlayerAction GetMenuOption()
         {
@@ -30,7 +30,7 @@ namespace BlackJack.view
 
         public ConsoleView(string language = "")
         {
-            view = new View(language);
+            _view = new View(language);
         }
         public void Update()
         {
@@ -40,18 +40,18 @@ namespace BlackJack.view
         public void DisplayWelcomeMessage()
         {
             System.Console.Clear();
-            System.Console.WriteLine(view.GetWelcomeMessage());
+            System.Console.WriteLine(_view.GetWelcomeMessage());
         }
 
         public void DisplayPlayerHand(IEnumerable<model.Card> a_hand, int a_score)
         {
-            System.Console.WriteLine(view.GetPlayerHand());
+            System.Console.WriteLine(_view.GetPlayerHand());
             DisplayHand(a_hand, a_score);
         }
 
         public void DisplayDealerHand(IEnumerable<model.Card> a_hand, int a_score)
         {
-            System.Console.WriteLine(view.GetDealerHand());
+            System.Console.WriteLine(_view.GetDealerHand());
             DisplayHand(a_hand, a_score);
         }
 
@@ -62,26 +62,26 @@ namespace BlackJack.view
                 DisplayCard(c);
             }
 
-            System.Console.WriteLine(view.GetScore(a_score));
+            System.Console.WriteLine(_view.GetScore(a_score));
             System.Console.WriteLine("");
         }
 
         public void DisplayCard(model.Card a_card)
         {
-            System.Console.WriteLine(view.GetCard(a_card));
+            System.Console.WriteLine(_view.GetCard(a_card));
         }
 
         public void DisplayGameOver(bool a_dealerIsWinner)
         {
-            System.Console.Write(view.GetGameOver());
+            System.Console.Write(_view.GetGameOver());
 
             if (a_dealerIsWinner)
             {
-                System.Console.WriteLine(view.GetDealerWinner());
+                System.Console.WriteLine(_view.GetDealerWinner());
             }
             else
             {
-                System.Console.WriteLine(view.GetPlayerWinner());
+                System.Console.WriteLine(_view.GetPlayerWinner());
             }
 
         }

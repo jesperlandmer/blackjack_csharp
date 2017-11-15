@@ -5,22 +5,19 @@ namespace BlackJack.model.observer
 {
     class PlayerObserver
     {
-        private List<IObserver> _observers;
+        private IObserver _observer;
 
         public void AddObserver(IObserver observer)
         {
-            _observers.Add(observer);
+            _observer = observer;
         }
         public void DeleteObserver(IObserver observer)
         {
-            _observers.Remove(observer);
+            _observer = default(IObserver);
         }
         public void NotifyObserver()
         {
-            foreach(IObserver o in _observers)
-            {
-                o.Update();
-            }
+            _observer.Update();
         }
     }
 }

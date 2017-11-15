@@ -7,12 +7,17 @@ namespace BlackJack.controller
 {
     class PlayGame
     {
-        public bool Play(model.Game a_game, view.IView a_view)
+        public void SetListener(model.observer.IObserver a_view)
         {
             model.observer.PlayerObserver observer = new model.observer.PlayerObserver();
             observer.AddObserver(a_view);
+        }
+
+        public bool Play(model.Game a_game, view.IView a_view)
+        {
+            SetListener(a_view);
             a_view.DisplayWelcomeMessage();
-            
+
             a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
             a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
 
