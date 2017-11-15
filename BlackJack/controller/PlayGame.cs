@@ -38,6 +38,10 @@ namespace BlackJack.controller
             return input != view.PlayerAction.DoQuit;
         }
 
+        public void Update()
+        {
+
+        }
         public void SetListener(model.observer.IObserver a_view)
         {
             model.observer.PlayerObserver observer = new model.observer.PlayerObserver();

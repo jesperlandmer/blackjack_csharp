@@ -5,6 +5,6 @@ namespace BlackJack.model.observer
 {
     interface IObserver
     {
-        void Update(List<Card> m_hand);
+        void Update();
     }
 }

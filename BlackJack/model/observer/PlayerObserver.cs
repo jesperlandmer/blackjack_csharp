@@ -7,6 +7,7 @@ namespace BlackJack.model.observer
     class PlayerObserver
     {
         private List<IObserver> _observers = new List<IObserver>();
+        private List<Card> _hand = new List<Card>();
 
         public void AddObserver(IObserver observer)
         {
@@ -16,12 +17,11 @@ namespace BlackJack.model.observer
         {
             _observers.Remove(observer);
         }
-        public void NotifyObserver(List<Card> m_hand)
+        public void NotifyObserver()
         {
-            Console.WriteLine("poo");
             foreach(IObserver o in _observers)
             {
-                o.Update(m_hand);
+                o.Update();
             }
         }
     }

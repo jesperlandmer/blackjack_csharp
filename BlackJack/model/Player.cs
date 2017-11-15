@@ -12,7 +12,7 @@ namespace BlackJack.model
         public void DealCard(Card a_card)
         {
             m_hand.Add(a_card);
-            NotifyObserver(m_hand);
+            NotifyObserver();
         }
 
         public IEnumerable<Card> GetHand()
