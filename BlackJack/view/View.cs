@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
 namespace BlackJack.view
 {
-    class View
+    class View : model.observer.PlayerObserver
     {
         private string _language;
+        private Stopwatch _stopwatch;
 
         public View(string language)
         {
             _language = language;
+        }
+
+        public void Update()
+        {
+            System.Threading.Thread.Sleep(1000);
+            _stopwatch.Stop();
         }
 
         public string GetWelcomeMessage()
