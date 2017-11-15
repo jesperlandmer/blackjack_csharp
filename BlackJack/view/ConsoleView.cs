@@ -32,10 +32,14 @@ namespace BlackJack.view
         {
             _view = new View(language);
         }
-        public void Update()
+        public void Update(List<model.Card> m_hand)
         {
-            System.Threading.Thread.Sleep(1000);
-            _stopwatch.Stop();
+            foreach (model.Card c in m_hand)
+            {
+                System.Threading.Thread.Sleep(1000);
+                _stopwatch.Stop();
+                DisplayCard(c);
+            }
         }
         public void DisplayWelcomeMessage()
         {
