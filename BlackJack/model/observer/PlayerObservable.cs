@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace BlackJack.model.observer
 {
-    class PlayerObserver
+    class PlayerObservable
     {
         public List<IObserver> _observers = new List<IObserver>();
 
@@ -17,11 +17,11 @@ namespace BlackJack.model.observer
         {
             _observers.Remove(observer);
         }
-        public void NotifyObserver(Card a_card)
+        public void NotifyObserver()
         {
             foreach (IObserver o in _observers)
             {
-                o.Update(a_card);
+                o.Update();
             }
         }
     }

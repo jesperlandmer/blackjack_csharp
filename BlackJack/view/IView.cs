@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    interface IView : model.observer.IObserver
+    interface IView
     {
         PlayerAction GetMenuOption();
         void DisplayWelcomeMessage();

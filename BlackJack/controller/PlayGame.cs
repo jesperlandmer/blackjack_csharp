@@ -1,40 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
 namespace BlackJack.controller
 {
-    class PlayGame
+    class PlayGame : model.observer.IObserver
     {
-        public bool Play(model.Game a_game, view.IView a_view)
+        private model.Game _game;
+        private view.IView _view;
+        private Stopwatch _stopwatch = Stopwatch.StartNew();
+
+        public PlayGame(model.Game a_game, view.IView a_view)
         {
-            a_view.DisplayWelcomeMessage();
+            _game = a_game;
+            _view = a_view;
 
-            a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
-            a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
+            _game.SetObserver(this);
+        }
 
-            if (a_game.IsGameOver())
+        public bool Play()
+        {
+            GetPlayBoard();
+
+            if (_game.IsGameOver())
             {
-                a_view.DisplayGameOver(a_game.IsDealerWinner());
+                _view.DisplayGameOver(_game.IsDealerWinner());
             }
 
-            view.PlayerAction input = a_view.GetMenuOption();
+            view.PlayerAction input = _view.GetMenuOption();
 
             if (input == view.PlayerAction.DoPlay)
             {
-                a_game.NewGame();
+                _game.NewGame();
             }
             else if (input == view.PlayerAction.DoHit)
             {
-                a_game.Hit();
+                _game.Hit();
             }
             else if (input == view.PlayerAction.DoStand)
             {
-                a_game.Stand();
+                _game.Stand();
             }
 
             return input != view.PlayerAction.DoQuit;
+        }
+
+        public void Update()
+        {
+            System.Threading.Thread.Sleep(1000);
+            _stopwatch.Stop();
+
+            GetPlayBoard();
+        }
+
+        private void GetPlayBoard()
+        {
+            _view.DisplayWelcomeMessage();
+            _view.DisplayDealerHand(_game.GetDealerHand(), _game.GetDealerScore());
+            _view.DisplayPlayerHand(_game.GetPlayerHand(), _game.GetPlayerScore());
         }
     }
 }

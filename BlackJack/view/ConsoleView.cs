@@ -9,7 +9,6 @@ namespace BlackJack.view
     class ConsoleView : IView
     {
         private View _view;
-        private Stopwatch _stopwatch = Stopwatch.StartNew();
 
         public PlayerAction GetMenuOption()
         {
@@ -31,12 +30,6 @@ namespace BlackJack.view
         public ConsoleView(string language = "")
         {
             _view = new View(language);
-        }
-        public void Update(model.Card a_card)
-        {
-            System.Threading.Thread.Sleep(1500);
-            _stopwatch.Stop();
-            DisplayCard(a_card);
         }
         public void DisplayWelcomeMessage()
         {
